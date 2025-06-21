@@ -1,43 +1,34 @@
-// App5.jsx
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from "./pages/about/About";
-import Contact from "./pages/contact/Contact";
-import Rootlayout from "./components/Rootlayout";
-import Menu from "./pages/menu/Menu";
-import Front from "./pages/front/Front";
 
 
-export default function App5() {
+import { createBrowserRouter, RouterProvider } from "react-router"
+import Home from "./pages/home/Home"
+
+import RootLayOut from "./components/RootLayOut";
+
+
+export default function App() {
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Rootlayout />,
+      element: <RootLayOut />,
       children: [
         {
           index: true,
-          element: <Front />
-
-        },
-        {
-          path: 'about',
-          element: <About />
-        },
-        {
-          path: 'menu',
-          element: <Menu />
-        },
-        {
-          path: 'contact',
-          element: <Contact />
+          element: <Home />
         }
       ]
-    }
+    },
+
+
   ]);
 
-  return <RouterProvider router={router} />;
+
+
+
+
+  return <RouterProvider router={router} />
 }
-
-
 
 
 
