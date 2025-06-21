@@ -12,9 +12,7 @@ export default function Rootlayout() {
 
 
       <Header />
-      <About />
-      <Menu />
-      <Contact />
+
       <Outlet />
     </div>
 
