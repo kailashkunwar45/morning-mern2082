@@ -1,30 +1,33 @@
+import { createBrowserRouter, RouterProvider } from "react-router"
+import Home from "./pages/home/Home"
+import RootLayOut from "./components/RootLayOut";
 
-import { useState } from "react";
 
-export default function Home() {
-  const [count, setCount] = useState(0);
+export default function App() {
 
-  const handleIncrement = () => {
-    setCount((prev) => prev + 1);
-  };
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <RootLayOut />,
+      children: [
+        {
+          index: true,
+          element: <Home />
+        }
+      ]
+    },
 
-  const handleDecrement = () => {
-    setCount((prev) => (prev > 0 ? prev - 1 : prev));
-  };
 
-  console.log("re-render");
+  ]);
 
-  return (
-    <div >
-      <h1>
-        {count} - {count % 2 === 0 ? "even" : "odd"}
-      </h1>
-      <button onClick={handleIncrement}>Increment</button>
-      <br />
-      <button onClick={handleDecrement}>Decrement</button>
-    </div>
-  );
+
+
+
+
+  return <RouterProvider router={router} />
 }
+
+
 
 
 
